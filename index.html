@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Modern Earner Report — Wave 4 · Q1 2026</title>
+<title>The Modern Earner Report — Q1 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -33,10 +33,11 @@ body {
   color: var(--text);
   line-height: 1.6;
   padding-top: 60px;
+  padding-left: 200px;
   overflow-x: hidden;
 }
 
-/* ── NAV ── */
+/* ── TOP NAV ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0;
   height: 60px;
@@ -44,8 +45,43 @@ nav {
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 32px; z-index: 100;
+  padding: 0 32px 0 232px; z-index: 100;
 }
+
+/* ── SIDE NAV ── */
+.side-nav {
+  position: fixed; top: 60px; left: 0; bottom: 0; width: 200px;
+  z-index: 90; background: var(--card);
+  border-right: 1px solid var(--border);
+  overflow-y: auto; display: flex; flex-direction: column;
+  padding: 20px 0 40px;
+}
+.side-nav::-webkit-scrollbar { width: 3px; }
+.side-nav::-webkit-scrollbar-track { background: transparent; }
+.side-nav::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+.side-nav-brand {
+  padding: 0 18px 18px; border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+.side-nav-report { font-size: 11px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.side-nav-meta { font-size: 10px; color: var(--muted); line-height: 1.4; }
+.side-nav-date { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; color: var(--green); margin-top: 6px; text-transform: uppercase; }
+.side-nav-group { margin-bottom: 4px; }
+.side-nav-group-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted2);
+  padding: 10px 18px 4px;
+}
+.side-nav-link {
+  display: block; padding: 6px 18px;
+  font-size: 11px; font-weight: 500; color: var(--muted);
+  text-decoration: none; transition: all 0.15s;
+  border-left: 2px solid transparent;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  line-height: 1.4;
+}
+.side-nav-link:hover { color: var(--text); background: rgba(255,255,255,0.02); }
+.side-nav-link.active { color: var(--green); border-left-color: var(--green); background: var(--green-dim2); font-weight: 600; }
 .nav-left { display: flex; flex-direction: column; gap: 1px; }
 .nav-title { font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: var(--text); }
 .nav-sub { font-size: 10px; font-weight: 500; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
@@ -502,6 +538,65 @@ section {
 .ess-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
 .na-badge { font-size: 11px; color: var(--muted2); font-style: italic; }
 
+/* ── PORTRAIT SECTIONS ── */
+.portrait-grid {
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  gap: 32px; align-items: start;
+}
+.portrait-narrative {
+  display: flex; flex-direction: column; gap: 20px;
+}
+.portrait-lede {
+  font-size: clamp(17px, 2vw, 22px); font-weight: 700;
+  line-height: 1.4; color: var(--text); max-width: 560px;
+}
+.portrait-body {
+  font-size: 14px; color: var(--muted); line-height: 1.8; max-width: 540px;
+}
+.portrait-body strong { color: var(--text); }
+.portrait-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.portrait-tag {
+  font-size: 11px; font-weight: 600; padding: 5px 12px;
+  border-radius: 4px; border: 1px solid var(--border2);
+  color: var(--muted); background: var(--card2);
+}
+.portrait-data { display: flex; flex-direction: column; gap: 12px; }
+.portrait-compare-card {
+  background: var(--card2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 24px;
+}
+.portrait-compare-title {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.10em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 16px;
+}
+.portrait-stat-row {
+  display: grid; grid-template-columns: 1fr auto auto;
+  gap: 12px; align-items: center; margin-bottom: 12px;
+}
+.portrait-stat-row:last-child { margin-bottom: 0; }
+.portrait-stat-label { font-size: 12px; color: var(--muted); }
+.portrait-stat-bars { display: flex; flex-direction: column; gap: 4px; width: 140px; }
+.portrait-bar-row { display: flex; align-items: center; gap: 6px; }
+.portrait-bar-label { font-size: 10px; color: var(--muted2); width: 46px; flex-shrink: 0; text-align: right; }
+.portrait-bar-wrap { flex: 1; height: 5px; background: var(--muted2); border-radius: 3px; overflow: hidden; }
+.portrait-bar { height: 100%; border-radius: 3px; }
+.portrait-bar-val { font-size: 11px; font-weight: 700; width: 28px; text-align: right; flex-shrink: 0; }
+.portrait-highlight-stat {
+  background: var(--card2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 20px 24px;
+  display: flex; align-items: center; gap: 20px;
+}
+.portrait-hl-num { font-size: 42px; font-weight: 900; line-height: 1; flex-shrink: 0; }
+.portrait-hl-label { font-size: 13px; color: var(--muted); line-height: 1.5; }
+.portrait-hl-label strong { display: block; font-size: 14px; color: var(--text); margin-bottom: 2px; }
+.vs-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--muted);
+  padding: 3px 8px; border-radius: 3px;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--border2);
+}
+
 /* ── SPOT CAVEAT ── */
 .spot-caveat {
   margin-top: 24px; padding: 14px 20px;
@@ -640,7 +735,13 @@ footer {
 }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
 
+@media (max-width: 1200px) {
+  .portrait-grid { grid-template-columns: 1fr; }
+}
 @media (max-width: 1024px) {
+  body { padding-left: 0; }
+  .side-nav { display: none; }
+  nav { padding-left: 32px; }
   .hero, section, .insight-band, footer { padding-left: 40px; padding-right: 40px; }
   .earner-grid, .hhi-grid { grid-template-columns: 1fr; }
   .income-grid, .frag-main, .teens-grid, .feature-grid { grid-template-columns: 1fr; }
@@ -656,14 +757,57 @@ footer {
 </head>
 <body>
 
-<!-- NAV -->
+<!-- TOP NAV -->
 <nav>
   <div class="nav-left">
     <div class="nav-title">The Modern Earner Report</div>
     <div class="nav-sub">Cash App · Customer Intelligence &amp; Strategy</div>
   </div>
-  <div class="nav-right">Wave 4 · Q1 2026</div>
+  <div class="nav-right">Q1 2026</div>
 </nav>
+
+<!-- SIDE NAV -->
+<aside class="side-nav" id="side-nav">
+  <div class="side-nav-brand">
+    <div class="side-nav-report">Modern Earner Report</div>
+    <div class="side-nav-meta">Customer Intelligence &amp; Strategy</div>
+    <div class="side-nav-date">Q1 2026</div>
+  </div>
+
+  <div class="side-nav-group">
+    <div class="side-nav-group-label">Overview</div>
+    <a href="#hero" class="side-nav-link" data-section="hero">The Landscape</a>
+    <a href="#segments" class="side-nav-link" data-section="segments">Earner Segments</a>
+  </div>
+
+  <div class="side-nav-group">
+    <div class="side-nav-group-label">Who They Are</div>
+    <a href="#portrait-ie" class="side-nav-link" data-section="portrait-ie">Independent Earners</a>
+    <a href="#portrait-hourly" class="side-nav-link" data-section="portrait-hourly">Hourly Workers</a>
+    <a href="#teens" class="side-nav-link" data-section="teens">Teen Earners</a>
+  </div>
+
+  <div class="side-nav-group">
+    <div class="side-nav-group-label">How They Earn</div>
+    <a href="#earning" class="side-nav-link" data-section="earning">Income Sources</a>
+    <a href="#fragmentation" class="side-nav-link" data-section="fragmentation">Income Fragmentation</a>
+    <a href="#hhi" class="side-nav-link" data-section="hhi">Income by HHI</a>
+  </div>
+
+  <div class="side-nav-group">
+    <div class="side-nav-group-label">Cash App</div>
+    <a href="#funnel" class="side-nav-link" data-section="funnel">Opportunity Funnel</a>
+    <a href="#features" class="side-nav-link" data-section="features">Feature Adoption</a>
+    <a href="#banking" class="side-nav-link" data-section="banking">Primary Banking</a>
+  </div>
+
+  <div class="side-nav-group">
+    <div class="side-nav-group-label">Data</div>
+    <a href="#explorer" class="side-nav-link" data-section="explorer">Explorer</a>
+    <a href="#interpretation" class="side-nav-link" data-section="interpretation">Interpretation</a>
+    <a href="#methodology" class="side-nav-link" data-section="methodology">Methodology</a>
+  </div>
+</aside>
 
 <!-- TICKER -->
 <div class="ticker">
@@ -692,10 +836,10 @@ footer {
 </div>
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero" id="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="wave-badge"><span class="dot"></span> Wave 4 · Earner Sizing Refresh Study · Q1 2026</div>
+    <div class="wave-badge"><span class="dot"></span> Earner Sizing Refresh Study · Q1 2026</div>
     <div class="hero-num fade-up"><span>129</span>M</div>
     <div class="hero-sub fade-up">Americans are <strong>Modern Earners</strong> — independent workers, hourly employees, and teens whose earning lives don't fit the traditional paycheck model.</div>
     <div class="hero-stats fade-up">
@@ -705,7 +849,7 @@ footer {
       </div>
       <div class="hero-stat">
         <div class="hero-stat-num">+2%</div>
-        <div class="hero-stat-label">vs Wave 3 (Q4 2024) · spot comparison</div>
+        <div class="hero-stat-label">vs Q4 2024 · spot comparison</div>
       </div>
       <div class="hero-stat">
         <div class="hero-stat-num">3</div>
@@ -713,7 +857,7 @@ footer {
       </div>
     </div>
     <div class="hero-wave-note fade-up">
-      <strong>Wave 4 (Q1 2026)</strong> is the latest iteration of the Earner Sizing Refresh Study. Where noted, data is compared to <strong>Wave 3 (Q4 2024)</strong>. These are independent cross-sectional surveys, not a longitudinal panel — wave-over-wave figures reflect population-level snapshots, not individual change. The Independent Earner definition expanded slightly in Wave 4 to include casual selling. Modern Earners = Independent Earners + Hourly Workers + Teens (15–17); business owners without other qualifying income are excluded.
+      <strong>Q1 2026</strong> is the latest Earner Sizing Refresh Study. Where noted, data is compared to <strong>Q4 2024</strong>. These are independent cross-sectional surveys, not a longitudinal panel — figures reflect population-level snapshots, not individual change. The Independent Earner definition expanded slightly in Q1 2026 to include casual selling. Modern Earners = Independent Earners + Hourly Workers + Teens (15–17); business owners without other qualifying income are excluded.
     </div>
   </div>
 </div>
@@ -769,7 +913,7 @@ footer {
 
   <div class="wave-compare fade-up">
     <div class="wc-item">
-      <div class="wc-label">Segment Size — Wave 4 (Q1 2026) vs Wave 3 (Q4 2024) · Spot comparison</div>
+      <div class="wc-label">Segment Size — Q1 2026 vs Q4 2024 · Spot comparison</div>
       <div class="wc-row">
         <div class="wc-name">Indep. Earners Q1 '26</div>
         <div class="wc-bar-wrap"><div class="wc-bar" style="width:0" data-w="70"></div></div>
@@ -794,7 +938,244 @@ footer {
     </div>
   </div>
   <div class="spot-caveat fade-up">
-    <strong>Spot comparison caveat:</strong> Wave 4 (Q1 2026) and Wave 3 (Q4 2024) are independent cross-sectional surveys with different respondent samples — not a longitudinal panel. Changes in segment sizes reflect population-level estimates at each point in time and should not be interpreted as tracking the same individuals. The Independent Earner definition also expanded in Wave 4 to include casual selling. † Wave 3 hourly figure reflects full-time hourly only; not directly comparable to the Wave 4 all-hourly figure.
+    <strong>Spot comparison caveat:</strong> Q1 2026 and Q4 2024 are independent cross-sectional surveys with different respondent samples — not a longitudinal panel. Changes in segment sizes reflect population-level estimates at each point in time and should not be interpreted as tracking the same individuals. The Independent Earner definition also expanded in Q1 2026 to include casual selling. † Q4 2024 hourly figure reflects full-time hourly only; not directly comparable to the Q1 2026 all-hourly figure.
+  </div>
+</section>
+
+<!-- SECTION 02: INDEPENDENT EARNER PORTRAIT -->
+<section id="portrait-ie">
+  <div class="section-label">02 — Independent Earner Portrait</div>
+  <div class="section-title">70 million Americans<br>who earn on their own terms.</div>
+  <div class="section-lead">Independent Earners aren't a monolith — they're gig workers, freelancers, casual sellers, and business side-hustlers who share one defining trait: they generate income outside the traditional employer-employee relationship.</div>
+
+  <div class="portrait-grid fade-up">
+    <div class="portrait-narrative">
+      <div class="portrait-lede">Most don't do this instead of a job. They do it alongside one.</div>
+      <div class="portrait-body">
+        <strong>~58M Independent Earners layer independent income on top of traditional employment</strong> — a full-time job plus gig work, a freelance client roster, or a side business selling products. Only ~12M earn exclusively through independent work. This means their financial complexity isn't the absence of a paycheck; it's the addition of multiple, irregular income streams on top of one.
+        <br><br>
+        Independent Earners are defined broadly: anyone earning via gig platforms, freelance or professional services, informal services (babysitting, lawn care, repairs), business or product sales, or casual selling. The Q1 2026 definition expanded to include casual selling, which partly explains the growth from 54M to 70M vs Q4 2024.
+      </div>
+      <div class="portrait-tags">
+        <span class="portrait-tag">Gig platforms</span>
+        <span class="portrait-tag">Freelance / contract</span>
+        <span class="portrait-tag">Informal services</span>
+        <span class="portrait-tag">Product / business sales</span>
+        <span class="portrait-tag">Casual selling</span>
+      </div>
+    </div>
+
+    <div class="portrait-data">
+      <div class="portrait-highlight-stat">
+        <div class="portrait-hl-num" style="color:var(--amber)">94%</div>
+        <div class="portrait-hl-label">
+          <strong>Have 2+ income sources in the past year</strong>
+          Most earn from 3 or more. For 77%, income flows from at least three distinct sources annually.
+        </div>
+      </div>
+
+      <div class="portrait-compare-card">
+        <div class="portrait-compare-title">Independent Earners vs Salary Workers</div>
+
+        <div style="margin-bottom:16px">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Monthly income variability</div>
+          <div class="portrait-bar-row" style="margin-bottom:6px">
+            <div class="portrait-bar-label" style="color:var(--amber)">Indep.</div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:83%;background:var(--amber)"></div></div>
+            <div class="portrait-bar-val" style="color:var(--amber)">83%</div>
+          </div>
+          <div class="portrait-bar-row">
+            <div class="portrait-bar-label">Salary</div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:49%;background:var(--muted2)"></div></div>
+            <div class="portrait-bar-val" style="color:var(--muted)">49%</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:16px">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Run out before next paycheck (at least half the time)</div>
+          <div class="portrait-bar-row" style="margin-bottom:6px">
+            <div class="portrait-bar-label" style="color:var(--amber)">Indep.</div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:37%;background:var(--amber)"></div></div>
+            <div class="portrait-bar-val" style="color:var(--amber)">37%</div>
+          </div>
+          <div class="portrait-bar-row">
+            <div class="portrait-bar-label">Salary</div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:27%;background:var(--muted2)"></div></div>
+            <div class="portrait-bar-val" style="color:var(--muted)">27%</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:16px">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Receive income in cash <span class="vs-badge">↑ sig.</span></div>
+          <div class="portrait-bar-row" style="margin-bottom:6px">
+            <div class="portrait-bar-label" style="color:var(--amber)">Indep.</div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:32%;background:var(--amber)"></div></div>
+            <div class="portrait-bar-val" style="color:var(--amber)">32%</div>
+          </div>
+          <div class="portrait-bar-row">
+            <div class="portrait-bar-label">Salary</div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:8%;background:var(--muted2)"></div></div>
+            <div class="portrait-bar-val" style="color:var(--muted)">8%</div>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Receive income via transfer app <span class="vs-badge">↑ sig.</span></div>
+          <div class="portrait-bar-row" style="margin-bottom:6px">
+            <div class="portrait-bar-label" style="color:var(--amber)">Indep.</div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:30%;background:var(--amber)"></div></div>
+            <div class="portrait-bar-val" style="color:var(--amber)">30%</div>
+          </div>
+          <div class="portrait-bar-row">
+            <div class="portrait-bar-label">Salary</div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:9%;background:var(--muted2)"></div></div>
+            <div class="portrait-bar-val" style="color:var(--muted)">9%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-compare-card">
+        <div class="portrait-compare-title">Financial complexity signals</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div style="text-align:center;padding:12px 8px;background:var(--bg);border-radius:6px">
+            <div style="font-size:28px;font-weight:900;color:var(--amber);line-height:1">51%</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4">earn majority of income <em>outside</em> their paycheck</div>
+          </div>
+          <div style="text-align:center;padding:12px 8px;background:var(--bg);border-radius:6px">
+            <div style="font-size:28px;font-weight:900;color:var(--amber);line-height:1">68%</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4">use 2+ payment methods to collect income</div>
+          </div>
+          <div style="text-align:center;padding:12px 8px;background:var(--bg);border-radius:6px">
+            <div style="font-size:28px;font-weight:900;color:var(--amber);line-height:1">54%</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4">have a Cash App account (vs 42% salary)</div>
+          </div>
+          <div style="text-align:center;padding:12px 8px;background:var(--bg);border-radius:6px">
+            <div style="font-size:28px;font-weight:900;color:var(--amber);line-height:1">37%</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4">likely to make Cash App primary (among non-primary account holders)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 03: HOURLY WORKER PORTRAIT -->
+<section id="portrait-hourly">
+  <div class="section-label">03 — Hourly Worker Portrait</div>
+  <div class="section-title">79 million workers<br>paid by the hour.</div>
+  <div class="section-lead">Hourly workers span industries — retail, food service, healthcare, transportation, construction, logistics. What unites them is how income works: not a fixed salary but hours logged, shifts scheduled, and tips earned. That unpredictability creates financial lives that look very different from their salaried peers.</div>
+
+  <div class="portrait-grid fade-up">
+    <div class="portrait-narrative">
+      <div class="portrait-lede">Their income isn't stable — it's scheduled. And schedules change.</div>
+      <div class="portrait-body">
+        Unlike Independent Earners whose variability comes from irregular freelance work, <strong>Hourly Workers experience variability through the mechanics of employment itself</strong> — shift changes, cut hours, seasonal slowdowns, tips that fluctuate with traffic. A slow week or a shift that gets canceled changes everything for someone without a salary cushion.
+        <br><br>
+        This makes them Cash App's most naturally aligned segment. <strong>57% already have a Cash App account</strong> — the highest account ownership of any adult segment. They're already in the ecosystem. The gap is converting that account ownership to primary banking status, where the core value of instant access and cash management can fully land.
+        <br><br>
+        Hourly Workers are also the segment under the most acute financial stress: <strong>38% run out of money before their next paycheck</strong> at least half the time — higher than both Independent Earners and Salary Workers. This drives materially higher usage of Cash App Borrow (22%) and free overdraft coverage (15%) compared to salary earners.
+      </div>
+      <div class="portrait-tags">
+        <span class="portrait-tag">Retail</span>
+        <span class="portrait-tag">Food service</span>
+        <span class="portrait-tag">Healthcare support</span>
+        <span class="portrait-tag">Transportation</span>
+        <span class="portrait-tag">Logistics</span>
+        <span class="portrait-tag">Construction</span>
+      </div>
+    </div>
+
+    <div class="portrait-data">
+      <div class="portrait-highlight-stat">
+        <div class="portrait-hl-num" style="color:var(--blue)">57%</div>
+        <div class="portrait-hl-label">
+          <strong>Have a Cash App account — highest of any adult segment</strong>
+          Yet only 10% name Cash App as their primary bank. The gap is the opportunity.
+        </div>
+      </div>
+
+      <div class="portrait-compare-card">
+        <div class="portrait-compare-title">Hourly Workers vs Salary Workers</div>
+
+        <div style="margin-bottom:16px">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Run out before next paycheck (at least half the time)</div>
+          <div class="portrait-bar-row" style="margin-bottom:6px">
+            <div class="portrait-bar-label" style="color:var(--blue)">Hourly</div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:38%;background:var(--blue)"></div></div>
+            <div class="portrait-bar-val" style="color:var(--blue)">38%</div>
+          </div>
+          <div class="portrait-bar-row">
+            <div class="portrait-bar-label">Salary</div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:27%;background:var(--muted2)"></div></div>
+            <div class="portrait-bar-val" style="color:var(--muted)">27%</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:16px">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Cash App Borrow usage <span class="vs-badge">↑ sig.</span></div>
+          <div class="portrait-bar-row" style="margin-bottom:6px">
+            <div class="portrait-bar-label" style="color:var(--blue)">Hourly</div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:22%;background:var(--blue)"></div></div>
+            <div class="portrait-bar-val" style="color:var(--blue)">22%</div>
+          </div>
+          <div class="portrait-bar-row">
+            <div class="portrait-bar-label">Salary</div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:18%;background:var(--muted2)"></div></div>
+            <div class="portrait-bar-val" style="color:var(--muted)">18%</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:16px">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Free overdraft coverage usage <span class="vs-badge">↑ sig.</span></div>
+          <div class="portrait-bar-row" style="margin-bottom:6px">
+            <div class="portrait-bar-label" style="color:var(--blue)">Hourly</div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:15%;background:var(--blue)"></div></div>
+            <div class="portrait-bar-val" style="color:var(--blue)">15%</div>
+          </div>
+          <div class="portrait-bar-row">
+            <div class="portrait-bar-label">Salary</div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:8%;background:var(--muted2)"></div></div>
+            <div class="portrait-bar-val" style="color:var(--muted)">8%</div>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Receive income via paper check</div>
+          <div class="portrait-bar-row" style="margin-bottom:6px">
+            <div class="portrait-bar-label" style="color:var(--blue)">Hourly</div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:13%;background:var(--blue)"></div></div>
+            <div class="portrait-bar-val" style="color:var(--blue)">13%</div>
+          </div>
+          <div class="portrait-bar-row">
+            <div class="portrait-bar-label">Salary</div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:7%;background:var(--muted2)"></div></div>
+            <div class="portrait-bar-val" style="color:var(--muted)">7%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-compare-card">
+        <div class="portrait-compare-title">Cash App profile vs salary workers</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div style="text-align:center;padding:12px 8px;background:var(--bg);border-radius:6px">
+            <div style="font-size:28px;font-weight:900;color:var(--blue);line-height:1">57%</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4">CA account (vs 42% salary)</div>
+          </div>
+          <div style="text-align:center;padding:12px 8px;background:var(--bg);border-radius:6px">
+            <div style="font-size:28px;font-weight:900;color:var(--blue);line-height:1">10%</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4">CA primary bank (vs 4% salary)</div>
+          </div>
+          <div style="text-align:center;padding:12px 8px;background:var(--bg);border-radius:6px">
+            <div style="font-size:28px;font-weight:900;color:var(--blue);line-height:1">50%</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4">use Cash App Card (vs 41% salary)</div>
+          </div>
+          <div style="text-align:center;padding:12px 8px;background:var(--bg);border-radius:6px">
+            <div style="font-size:28px;font-weight:900;color:var(--blue);line-height:1">26%</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4">likely to make CA primary (among non-primary holders)</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -809,7 +1190,7 @@ footer {
 
 <!-- SECTION 02: HOW THEY EARN -->
 <section id="earning">
-  <div class="section-label">02 — Income Anatomy</div>
+  <div class="section-label">04 — Income Anatomy</div>
   <div class="section-title">How Modern Earners<br>actually get paid.</div>
   <div class="section-lead">Modern Earners draw income from overlapping sources: traditional employment, independent work, financial assets, and transfers. The mix — and its complexity — varies significantly by segment.</div>
 
@@ -893,7 +1274,7 @@ footer {
     </div>
   </div>
   <div class="income-note fade-up">
-    <strong style="color:var(--text)">Note:</strong> Income source percentages reflect share of all adults with income who earned from each source in the past 12 months (not mutually exclusive). Investment income is notably prevalent across all income tiers — including 17% among earners under $30K HHI, rising to 40% at $70K+. Source: Earner Sizing Refresh Study (Wave 4, Q1 2026).
+    <strong style="color:var(--text)">Note:</strong> Income source percentages reflect share of all adults with income who earned from each source in the past 12 months (not mutually exclusive). Investment income is notably prevalent across all income tiers — including 17% among earners under $30K HHI, rising to 40% at $70K+. Source: Earner Sizing Refresh Study (Q1 2026).
   </div>
 
   <div class="fragmentation-grid fade-up" style="margin-top:48px">
@@ -918,7 +1299,7 @@ footer {
 
 <!-- SECTION 03: INCOME FRAGMENTATION -->
 <section id="fragmentation">
-  <div class="section-label">03 — Income Fragmentation</div>
+  <div class="section-label">05 — Income Fragmentation</div>
   <div class="section-title">Variable income.<br>Fragmented payments.<br>Uneven cash flow.</div>
   <div class="section-lead">Modern Earners — especially Independent Earners and Hourly Workers — experience income as irregular, unpredictable, and arriving through multiple channels simultaneously. Traditional banking infrastructure was not designed for this.</div>
 
@@ -1047,7 +1428,7 @@ footer {
 
 <!-- SECTION 04: HHI -->
 <section id="hhi">
-  <div class="section-label">04 — Income Spectrum</div>
+  <div class="section-label">06 — Income Spectrum</div>
   <div class="section-title">The opportunity cuts<br>across every income tier.</div>
   <div class="section-lead">Modern Earning is not a low-income phenomenon. The highest incidence is in the $30–70K mid-market tier, and Cash App already has meaningful penetration at $70K+ — a population often overlooked in the narrative.</div>
 
@@ -1087,7 +1468,7 @@ footer {
     </div>
   </div>
   <div class="income-note fade-up">
-    Modern Earner incidence remains above 60% across all HHI tiers. Investment income increases sharply at $70K+ (40% vs 17% below), representing a meaningfully different financial profile that Cash App's investing features are positioned to serve. Source: HHI Refresh Study (Wave 4, Q1 2026).
+    Modern Earner incidence remains above 60% across all HHI tiers. Investment income increases sharply at $70K+ (40% vs 17% below), representing a meaningfully different financial profile that Cash App's investing features are positioned to serve. Source: HHI Refresh Study (Q1 2026).
   </div>
 </section>
 
@@ -1102,7 +1483,7 @@ footer {
 
 <!-- SECTION 05: FUNNEL -->
 <section id="funnel">
-  <div class="section-label">05 — Cash App Opportunity</div>
+  <div class="section-label">07 — Cash App Opportunity</div>
   <div class="section-title">From awareness to<br>primary bank.</div>
   <div class="section-lead">Cash App already occupies a strong position within the Modern Earner universe. The challenge is conversion — moving the 38M monthly active users who haven't yet designated Cash App as their primary financial institution.</div>
 
@@ -1165,7 +1546,7 @@ footer {
 
 <!-- SECTION 06: FEATURES -->
 <section id="features">
-  <div class="section-label">06 — Feature Adoption</div>
+  <div class="section-label">08 — Feature Adoption</div>
   <div class="section-title">What Cash App users<br>actually use.</div>
   <div class="section-lead">Among the 70M Modern Earners with a Cash App account, feature adoption varies significantly by segment. Send/receive and the debit card lead overall — but Independent Earners over-index on Bitcoin and savings, while Hourly Workers drive overdraft and borrow usage.</div>
 
@@ -1293,17 +1674,17 @@ footer {
 
 <!-- SECTION 07: BANKING COMPETITION -->
 <section id="banking">
-  <div class="section-label">07 — Primary Banking</div>
+  <div class="section-label">09 — Primary Banking</div>
   <div class="section-title">Cash App's banking share<br>has tripled since Q4 2024.</div>
-  <div class="section-lead">Spot comparison between Wave 4 (Q1 2026) and Wave 3 (Q4 2024) shows a meaningful shift in primary banking — Cash App gained 8 percentage points while Bank of America lost 9 and Chase lost 4. These are independent cross-sections of the Modern Earner population, not a panel — but the directional signal is consistent and notable.</div>
+  <div class="section-lead">Spot comparison between Q1 2026 and Q4 2024 shows a meaningful shift in primary banking — Cash App gained 8 percentage points while Bank of America lost 9 and Chase lost 4. These are independent cross-sections of the Modern Earner population, not a panel — but the directional signal is consistent and notable.</div>
 
   <div class="bank-table-wrap fade-up">
     <table class="bank-table">
       <thead>
         <tr>
           <th>Institution</th>
-          <th>Wave 3 (Q4 2024)</th>
-          <th>Wave 4 (Q1 2026)</th>
+          <th>Q4 2024</th>
+          <th>Q1 2026</th>
           <th>Change</th>
           <th>Share (2026)</th>
         </tr>
@@ -1385,13 +1766,13 @@ footer {
     </table>
   </div>
   <div class="income-note fade-up">
-    Wave 3 (Q4 2024) comparisons shown where available in the dataset. The Cash App primary banking shift (4% → 12%) reflects a notable change in where Modern Earners anchor their financial lives. These are independent cross-sections — directional findings should be interpreted with appropriate caution. Source: Earner Sizing Refresh Study, Wave 4 (Q1 2026) and Wave 3 (Q4 2024).
+    Q4 2024 comparisons shown where available in the dataset. The Cash App primary banking shift (4% → 12%) reflects a notable change in where Modern Earners anchor their financial lives. These are independent cross-sections — directional findings should be interpreted with appropriate caution. Source: Earner Sizing Refresh Study, Q1 2026 and Q4 2024.
   </div>
 </section>
 
 <!-- SECTION 08: TEENS -->
 <section id="teens">
-  <div class="section-label">08 — Teen Earners</div>
+  <div class="section-label">10 — Teen Earners</div>
   <div class="section-title">The generational flywheel.</div>
   <div class="section-lead">Teen earners (ages 15–17) represent 14% of all Modern Earners and 15M individuals. Their relationship with Cash App is disproportionately strong — and their conversion from account holder to primary bank customer happens at 3× the adult rate.</div>
 
@@ -1453,7 +1834,7 @@ footer {
 
 <!-- SECTION 09: EXPLORER -->
 <section id="explorer">
-  <div class="section-label">09 — Data Explorer</div>
+  <div class="section-label">11 — Data Explorer</div>
   <div class="section-title">All segments,<br>side by side.</div>
   <div class="section-lead">Default view compares all earner segments against a working-age population benchmark. Select a metric category or highlight a specific segment to focus the analysis.</div>
 
@@ -1488,9 +1869,9 @@ footer {
 
 <!-- SECTION 10: INTERPRETATION -->
 <section id="interpretation">
-  <div class="section-label">10 — Interpretation</div>
+  <div class="section-label">12 — Interpretation</div>
   <div class="section-title">What the data<br>means — and doesn't.</div>
-  <div class="section-lead">Key themes from the Wave 4 findings and the strategic context for reading this data carefully.</div>
+  <div class="section-lead">Key themes from the Q1 2026 findings and the strategic context for reading this data carefully.</div>
 
   <div class="interp-block">
     <div class="interp-num">Finding 01</div>
@@ -1506,8 +1887,8 @@ footer {
 
   <div class="interp-block">
     <div class="interp-num">Finding 03</div>
-    <div class="interp-title">The wave-over-wave shifts are directional, not definitive.</div>
-    <div class="interp-body">The apparent growth in Independent Earners (54M → 70M) and the increase in Cash App primary banking (4% → 12%) are notable but should be interpreted carefully. <strong>These are spot comparisons between independent samples, not a panel.</strong> The IE definition also expanded in Wave 4 to include casual selling. Changes may reflect real shifts in the population, methodological differences, or both. <strong>Implication:</strong> Use these figures to understand directional momentum, not to calculate precise growth rates.</div>
+    <div class="interp-title">The quarter-over-quarter shifts are directional, not definitive.</div>
+    <div class="interp-body">The apparent growth in Independent Earners (54M → 70M) and the increase in Cash App primary banking (4% → 12%) are notable but should be interpreted carefully. <strong>These are spot comparisons between independent samples, not a panel.</strong> The IE definition also expanded in Q1 2026 to include casual selling. Changes may reflect real shifts in the population, methodological differences, or both. <strong>Implication:</strong> Use these figures to understand directional momentum, not to calculate precise growth rates.</div>
   </div>
 
   <div class="interp-block">
@@ -1519,39 +1900,39 @@ footer {
   <div class="limitation-box">
     <div class="limitation-title">Data Limitations to Keep in Mind</div>
     <div class="limitation-text">
-      All income and banking data is <strong>self-reported</strong> — subject to recall and social desirability bias. "Primary bank" reflects self-designation, which may differ from transactional primacy (where paycheck is deposited, where most spending occurs). Segment counts are population estimates with sampling error; treat as directional rather than precise. Wave 3–Wave 4 comparisons are not panel-based — do not interpret as individual-level change. Feature adoption data reflects past-12-month use among account holders; does not imply current active use.
+      All income and banking data is <strong>self-reported</strong> — subject to recall and social desirability bias. "Primary bank" reflects self-designation, which may differ from transactional primacy (where paycheck is deposited, where most spending occurs). Segment counts are population estimates with sampling error; treat as directional rather than precise. Q4 2024–Q1 2026 comparisons are not panel-based — do not interpret as individual-level change. Feature adoption data reflects past-12-month use among account holders; does not imply current active use.
     </div>
   </div>
 </section>
 
 <!-- SECTION 11: METHODOLOGY -->
 <section id="methodology">
-  <div class="section-label">11 — Methodology</div>
+  <div class="section-label">13 — Methodology</div>
   <div class="section-title">How the data<br>was collected.</div>
-  <div class="section-lead">A full account of study design, sampling, definitions, and analytical approach for both Wave 4 and the wave-over-wave comparisons.</div>
+  <div class="section-lead">A full account of study design, sampling, definitions, and analytical approach for the Q1 2026 study and the Q1 2026 vs Q4 2024 comparisons.</div>
 
   <div class="method-grid">
     <div class="method-block">
       <div class="method-block-title">Study Design</div>
       <div class="method-item">
         <div class="method-item-label">Study Name</div>
-        <div class="method-item-text">Earner Sizing Refresh Study — Wave 4 (Q1 2026). Conducted by Cash App Customer Intelligence &amp; Strategy.</div>
+        <div class="method-item-text">Earner Sizing Refresh Study — Q1 2026. Conducted by Cash App Customer Intelligence &amp; Strategy.</div>
       </div>
       <div class="method-item">
         <div class="method-item-label">Study Type</div>
         <div class="method-item-text">Online quantitative survey. Cross-sectional design — independent sample at each wave. Not a longitudinal panel.</div>
       </div>
       <div class="method-item">
-        <div class="method-item-label">Wave 4 Sample</div>
+        <div class="method-item-label">Q1 2026 Sample</div>
         <div class="method-item-text">n = 3,495 (weighted: 3,482). Ages 15–64 with personal income. Fielded Q1 2026.</div>
       </div>
       <div class="method-item">
-        <div class="method-item-label">Wave 3 Sample</div>
-        <div class="method-item-text">n = 4,148. Ages 18–64 with personal income. Fielded Q4 2024. Note: Wave 3 did not include ages 15–17; teen comparisons are Wave 4 only.</div>
+        <div class="method-item-label">Q4 2024 Sample</div>
+        <div class="method-item-text">n = 4,148. Ages 18–64 with personal income. Fielded Q4 2024. Note: Q4 2024 did not include ages 15–17; teen comparisons are Q1 2026 only.</div>
       </div>
       <div class="method-item">
         <div class="method-item-label">HHI Supplement</div>
-        <div class="method-item-text">Household income segment analysis from the HHI Refresh Study (Wave 4, Q1 2026). Breakdowns by &lt;$30K / $30–70K / $70K+ HHI.</div>
+        <div class="method-item-text">Household income segment analysis from the HHI Refresh Study (Q1 2026). Breakdowns by &lt;$30K / $30–70K / $70K+ HHI.</div>
       </div>
     </div>
     <div class="method-block">
@@ -1562,19 +1943,19 @@ footer {
       </div>
       <div class="method-item">
         <div class="method-item-label">Independent Earners</div>
-        <div class="method-item-text">Adults earning via gig platforms, freelance, informal services, business ownership, or casual selling — whether primary or supplemental. Wave 4 expanded to include casual selling (not in Wave 3 definition).</div>
+        <div class="method-item-text">Adults earning via gig platforms, freelance, informal services, business ownership, or casual selling — whether primary or supplemental. Q1 2026 expanded to include casual selling (not in Q4 2024 definition).</div>
       </div>
       <div class="method-item">
         <div class="method-item-label">Hourly Workers</div>
-        <div class="method-item-text">All hourly-compensated employees — full-time and part-time. Wave 4 includes part-time hourly (Wave 3 was full-time only); the full-time-only count was ~42M in Wave 4 and ~45M in Wave 3.</div>
+        <div class="method-item-text">All hourly-compensated employees — full-time and part-time. Q1 2026 includes part-time hourly (Q4 2024 was full-time only); the full-time-only count was ~42M in Q1 2026 and ~45M in Q4 2024.</div>
       </div>
       <div class="method-item">
         <div class="method-item-label">Salary Earners</div>
-        <div class="method-item-text">Full-time salaried employees. Included as a comparison group; not part of the Modern Earner definition. ~46M in Wave 4.</div>
+        <div class="method-item-text">Full-time salaried employees. Included as a comparison group; not part of the Modern Earner definition. ~46M in Q1 2026.</div>
       </div>
       <div class="method-item">
         <div class="method-item-label">Teen Earners</div>
-        <div class="method-item-text">Ages 15–17 with any income in the past 12 months. Wave 4 only (not included in Wave 3 design).</div>
+        <div class="method-item-text">Ages 15–17 with any income in the past 12 months. Q1 2026 only (not included in Q4 2024 design).</div>
       </div>
     </div>
     <div class="method-block">
@@ -1596,7 +1977,7 @@ footer {
       <div class="method-block-title">Data Sources &amp; Scope</div>
       <div class="method-item">
         <div class="method-item-label">Primary Source</div>
-        <div class="method-item-text">All data in this report sourced exclusively from the Earner Sizing Refresh Study (Wave 4, Q1 2026) and the HHI Refresh Study (Q1 2026), unless explicitly noted as Wave 3 (Q4 2024).</div>
+        <div class="method-item-text">All data in this report sourced exclusively from the Earner Sizing Refresh Study (Q1 2026) and the HHI Refresh Study (Q1 2026), unless explicitly noted as Q4 2024.</div>
       </div>
       <div class="method-item">
         <div class="method-item-label">Gen Pop Benchmark</div>
@@ -1620,18 +2001,18 @@ footer {
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-brand">The Modern Earner Report — Wave 4</div>
+      <div class="footer-brand">The Modern Earner Report — Q1 2026</div>
       <div class="footer-team">Cash App · Customer Intelligence &amp; Strategy · 2026</div>
     </div>
     <div class="footer-meta">
-      Earner Sizing Refresh Study · Wave 4 (Q1 2026)<br>
+      Earner Sizing Refresh Study · Q1 2026<br>
       n = 3,495 (weighted: 3,482) · Ages 15–64 with personal income<br>
-      Spot comparison to Wave 3 (Q4 2024, n=4,148)
+      Spot comparison to Q4 2024 (n=4,148)
     </div>
   </div>
   <div class="footer-divider"></div>
   <div class="methodology">
-    <strong>Data source:</strong> Earner Sizing Refresh Study, Wave 4 (Q1 2026) and Wave 3 (Q4 2024). HHI Refresh Study (Q1 2026). Cash App Customer Intelligence &amp; Strategy. See Section 11 for full methodology. Wave 3–Wave 4 comparisons are <strong>spot comparisons between independent cross-sections</strong> — not a longitudinal panel. Wave 4 Hourly Worker count (79M) includes full-time and part-time hourly; Wave 3 figure (45M) reflects full-time only and is not directly comparable. Independent Earner definition expanded in Wave 4 to include casual selling. All financial data self-reported. Statistical significance at p=0.05, FDR-corrected.
+    <strong>Data source:</strong> Earner Sizing Refresh Study, Q1 2026 and Q4 2024. HHI Refresh Study (Q1 2026). Cash App Customer Intelligence &amp; Strategy. See Methodology section for full detail. Q1 2026 vs Q4 2024 comparisons are <strong>spot comparisons between independent cross-sections</strong> — not a longitudinal panel. Q1 2026 Hourly Worker count (79M) includes full-time and part-time hourly; Q4 2024 figure (45M) reflects full-time only and is not directly comparable. Independent Earner definition expanded in Q1 2026 to include casual selling. All financial data self-reported. Statistical significance at p=0.05, FDR-corrected.
   </div>
 </footer>
 
@@ -1831,6 +2212,28 @@ setTimeout(() => {
 
 // ── INIT EXPLORER ────────────────────────────────────────────────────────────
 renderMatrix();
+
+// ── SIDE NAV SCROLL SPY ───────────────────────────────────────────────────────
+(function() {
+  const navLinks = document.querySelectorAll('.side-nav-link[data-section]');
+  const sections = Array.from(navLinks).map(link => {
+    const el = document.getElementById(link.dataset.section);
+    return { link, el };
+  }).filter(item => item.el);
+
+  function onScroll() {
+    const scrollY = window.scrollY + 80;
+    let current = sections[0];
+    for (const item of sections) {
+      if (item.el.offsetTop <= scrollY) current = item;
+    }
+    navLinks.forEach(l => l.classList.remove('active'));
+    if (current) current.link.classList.add('active');
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
 </script>
 </body>
 </html>
