@@ -454,6 +454,57 @@ section {
 .trend-bar-inline { display: inline-flex; align-items: center; gap: 8px; }
 .tbi { height: 8px; border-radius: 4px; display: inline-block; vertical-align: middle; }
 
+/* ── BANKING LAYOUT (SEC 09 REDESIGN) ── */
+.banking-layout {
+  display: grid; grid-template-columns: 1.2fr 1fr;
+  gap: 32px; align-items: start;
+}
+.banking-bars-panel {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 28px 28px 20px;
+}
+.bank-bar-row {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 14px;
+}
+.bank-bar-row.highlight-row .bank-bar-name { color: var(--text); font-size: 13px; }
+.bank-bar-name {
+  display: flex; align-items: center; gap: 8px;
+  width: 110px; font-size: 12px; color: var(--muted); flex-shrink: 0;
+}
+.bank-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.bank-bar-track {
+  flex: 1; height: 8px; background: var(--border2);
+  border-radius: 4px; overflow: hidden;
+}
+.bank-bar-fill { height: 100%; border-radius: 4px; transition: width 0.8s ease; }
+.bank-bar-pct { font-size: 12px; font-weight: 700; width: 34px; text-align: right; color: var(--muted); flex-shrink: 0; }
+.bank-type-tag {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 2px 7px; border-radius: 4px; flex-shrink: 0;
+}
+.bank-type-tag.fintech { background: rgba(0,213,75,0.10); color: var(--green); }
+.bank-type-tag.trad { background: rgba(255,255,255,0.06); color: var(--muted); }
+.bank-bar-divider {
+  display: flex; align-items: center; gap: 10px;
+  margin: 6px 0 14px; color: var(--muted2);
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.bank-bar-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.bank-note {
+  font-size: 10px; color: var(--muted2); line-height: 1.5;
+  margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border);
+}
+.banking-callouts-panel { display: flex; flex-direction: column; gap: 16px; }
+.bank-callout-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px;
+}
+.bank-callout-card.primary-bank-card {
+  background: linear-gradient(135deg, rgba(0,213,75,0.08) 0%, rgba(0,213,75,0.02) 100%);
+  border-color: rgba(0,213,75,0.2);
+}
+
 /* ── TEENS (SEC 08) ── */
 .teens-grid {
   display: grid; grid-template-columns: 1.2fr 1fr;
@@ -537,6 +588,61 @@ section {
 .ess-val { font-size: 22px; font-weight: 800; color: var(--green); }
 .ess-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
 .na-badge { font-size: 11px; color: var(--muted2); font-style: italic; }
+
+/* ── WORK TYPE EXPLORER ── */
+.worktype-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 10px; margin-top: 32px;
+}
+.worktype-card {
+  background: var(--card2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 18px 16px;
+  cursor: pointer; transition: all 0.2s;
+  position: relative;
+}
+.worktype-card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-1px); }
+.worktype-card.active { transform: translateY(-2px); }
+.worktype-size { font-size: 30px; font-weight: 900; line-height: 1; margin-bottom: 6px; }
+.worktype-label { font-size: 12px; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
+.worktype-pct { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 10px; }
+.worktype-examples { font-size: 11px; color: var(--muted); line-height: 1.6; }
+.worktype-insight {
+  margin-top: 10px; padding: 8px 10px;
+  border-radius: 5px; font-size: 11px;
+  color: var(--muted); line-height: 1.5;
+  display: none;
+}
+.worktype-card.active .worktype-insight { display: block; }
+.worktype-bar {
+  height: 3px; border-radius: 2px; margin-top: 12px;
+}
+.worktype-note {
+  font-size: 12px; color: var(--muted); line-height: 1.6;
+  padding: 14px 18px; margin-top: 16px;
+  background: var(--card2); border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+/* ── TEEN INCOME SOURCES ── */
+.teen-sources-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 24px; margin-top: 32px;
+}
+.teen-source-group {
+  background: var(--card2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 24px;
+}
+.teen-source-group-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.10em;
+  text-transform: uppercase; margin-bottom: 16px;
+  padding-bottom: 10px; border-bottom: 1px solid var(--border);
+}
+.teen-source-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.teen-source-row:last-child { margin-bottom: 0; }
+.teen-source-label { font-size: 12px; color: var(--muted); flex: 1; }
+.teen-source-bar-wrap { width: 80px; height: 5px; background: var(--muted2); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+.teen-source-bar { height: 100%; border-radius: 3px; }
+.teen-source-val { font-size: 12px; font-weight: 700; width: 28px; text-align: right; flex-shrink: 0; }
 
 /* ── PORTRAIT SECTIONS ── */
 .portrait-grid {
@@ -916,23 +1022,23 @@ footer {
       <div class="wc-label">Segment Size — Q1 2026 vs Q4 2024 · Spot comparison</div>
       <div class="wc-row">
         <div class="wc-name">Indep. Earners Q1 '26</div>
-        <div class="wc-bar-wrap"><div class="wc-bar" style="width:0" data-w="70"></div></div>
+        <div class="wc-bar-wrap"><div class="wc-bar" style="width:0" data-w="89"></div></div>
         <div class="wc-val">70M</div>
         <div class="wc-delta">▲ +29%</div>
       </div>
       <div class="wc-row">
         <div class="wc-name">Indep. Earners Q4 '24</div>
-        <div class="wc-bar-wrap"><div class="wc-bar" style="width:0;background:var(--muted2)" data-w="54"></div></div>
+        <div class="wc-bar-wrap"><div class="wc-bar" style="width:0;background:var(--muted2)" data-w="68"></div></div>
         <div class="wc-val" style="color:var(--muted)">54M</div>
       </div>
       <div class="wc-row" style="margin-top:12px">
         <div class="wc-name">Hourly Workers Q1 '26</div>
-        <div class="wc-bar-wrap"><div class="wc-bar blue" style="width:0" data-w="79"></div></div>
+        <div class="wc-bar-wrap"><div class="wc-bar blue" style="width:0" data-w="100"></div></div>
         <div class="wc-val">79M</div>
       </div>
       <div class="wc-row">
         <div class="wc-name">Hourly Workers Q4 '24†</div>
-        <div class="wc-bar-wrap"><div class="wc-bar" style="width:0;background:var(--muted2)" data-w="45"></div></div>
+        <div class="wc-bar-wrap"><div class="wc-bar" style="width:0;background:var(--muted2)" data-w="57"></div></div>
         <div class="wc-val" style="color:var(--muted)">45M</div>
       </div>
     </div>
@@ -1057,6 +1163,53 @@ footer {
       </div>
     </div>
   </div>
+
+  <!-- IE Work Type Explorer -->
+  <div style="margin-top:40px">
+    <div style="font-size:11px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--amber);margin-bottom:6px">How Independent Earners earn</div>
+    <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px">Five categories. One interconnected earner.</div>
+    <div style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:28px;max-width:700px">Most Independent Earners combine multiple income types — gig work layered on top of freelance projects, alongside informal services and casual reselling. Click any category to explore the segment.</div>
+
+    <div class="worktype-grid" id="ie-worktype-grid">
+      <div class="worktype-card active" data-wt="0">
+        <div class="worktype-size" style="color:var(--amber)">~28M</div>
+        <div class="worktype-label">Informal Services</div>
+        <div class="worktype-bar"><div style="width:100%;height:3px;background:var(--amber);border-radius:2px"></div></div>
+        <div class="worktype-examples">Babysitting · Lawn care · Handyman · Pet sitting · House cleaning · Tutoring</div>
+      </div>
+      <div class="worktype-card" data-wt="1">
+        <div class="worktype-size" style="color:var(--green)">~26M</div>
+        <div class="worktype-label">Business & Products</div>
+        <div class="worktype-bar"><div style="width:93%;height:3px;background:var(--green);border-radius:2px"></div></div>
+        <div class="worktype-examples">Etsy · Resale · Handmade goods · Direct sales · Online stores</div>
+      </div>
+      <div class="worktype-card" data-wt="2">
+        <div class="worktype-size" style="color:var(--blue)">~21M</div>
+        <div class="worktype-label">Professional / Freelance</div>
+        <div class="worktype-bar"><div style="width:75%;height:3px;background:var(--blue);border-radius:2px"></div></div>
+        <div class="worktype-examples">Writing · Design · Consulting · Software · Accounting · Marketing</div>
+      </div>
+      <div class="worktype-card" data-wt="3">
+        <div class="worktype-size" style="color:var(--red)">~16M</div>
+        <div class="worktype-label">Gig Platforms</div>
+        <div class="worktype-bar"><div style="width:57%;height:3px;background:var(--red);border-radius:2px"></div></div>
+        <div class="worktype-examples">DoorDash · Uber/Lyft · Instacart · Amazon Flex · TaskRabbit</div>
+      </div>
+      <div class="worktype-card" data-wt="4">
+        <div class="worktype-size" style="color:var(--purple)">~8M</div>
+        <div class="worktype-label">Content Creation</div>
+        <div class="worktype-bar"><div style="width:29%;height:3px;background:var(--purple);border-radius:2px"></div></div>
+        <div class="worktype-examples">YouTube · Twitch · Substack · Instagram · TikTok · Podcasts</div>
+      </div>
+    </div>
+
+    <div class="worktype-insight" id="ie-worktype-insight">
+      <div id="ie-insight-content">
+        <strong>Informal Services — the largest independent earning category.</strong> 28 million adults earn through informal services — the most common form of independent income. It's also the most cash-intensive: payment via Venmo, Cash App, or cash-in-hand is the norm. Many don't think of themselves as "gig workers" at all — they're just helping neighbors, watching kids, or doing odd jobs. This segment is radically underserved by financial products designed for formal employment.
+      </div>
+    </div>
+  </div>
+  <div class="worktype-note">Base: Modern Earners, Q1 2026. Segment sizes are estimates based on incidence × U.S. working-age population; earners may span multiple categories. Source: Earner Sizing Refresh Study, Tab 1.</div>
 </section>
 
 <!-- SECTION 03: HOURLY WORKER PORTRAIT -->
@@ -1674,99 +1827,111 @@ footer {
 
 <!-- SECTION 07: BANKING COMPETITION -->
 <section id="banking">
-  <div class="section-label">09 — Primary Banking</div>
-  <div class="section-title">Cash App's banking share<br>has tripled since Q4 2024.</div>
-  <div class="section-lead">Spot comparison between Q1 2026 and Q4 2024 shows a meaningful shift in primary banking — Cash App gained 8 percentage points while Bank of America lost 9 and Chase lost 4. These are independent cross-sections of the Modern Earner population, not a panel — but the directional signal is consistent and notable.</div>
+  <div class="section-label">09 — Financial Account Landscape</div>
+  <div class="section-title">Modern Earners hold accounts<br>across fintech and traditional banks.</div>
+  <div class="section-lead">Modern Earners maintain accounts at multiple financial institutions simultaneously — fintech platforms dominate by volume, while traditional banks retain meaningful share. 12% of Modern Earners designate Cash App as their primary bank, making it the second-most-named primary institution behind Bank of America.</div>
 
-  <div class="bank-table-wrap fade-up">
-    <table class="bank-table">
-      <thead>
-        <tr>
-          <th>Institution</th>
-          <th>Q4 2024</th>
-          <th>Q1 2026</th>
-          <th>Change</th>
-          <th>Share (2026)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="highlight">
-          <td><strong>Cash App</strong></td>
-          <td>4%</td>
-          <td><strong>12%</strong></td>
-          <td class="trend-up">▲ +8 pts</td>
-          <td>
-            <div class="trend-bar-inline">
-              <span class="tbi" style="width:60px;background:var(--green)"></span>
-              <span style="font-size:12px;font-weight:700;color:var(--green)">12%</span>
+  <div class="banking-layout fade-up">
+    <div class="banking-bars-panel">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:20px">Account Ownership — Modern Earners (Q1 2026)</div>
+
+      <div class="bank-bar-row highlight-row">
+        <div class="bank-bar-name"><span class="bank-dot" style="background:var(--green)"></span><strong>Cash App</strong></div>
+        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:55%;background:var(--green)"></div></div>
+        <div class="bank-bar-pct" style="color:var(--green)">55%</div>
+        <div class="bank-type-tag fintech">Fintech</div>
+      </div>
+      <div class="bank-bar-row highlight-row">
+        <div class="bank-bar-name"><span class="bank-dot" style="background:var(--amber)"></span><strong>PayPal</strong></div>
+        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:59%;background:var(--amber)"></div></div>
+        <div class="bank-bar-pct" style="color:var(--amber)">59%</div>
+        <div class="bank-type-tag fintech">Fintech</div>
+      </div>
+      <div class="bank-bar-row highlight-row">
+        <div class="bank-bar-name"><span class="bank-dot" style="background:var(--blue)"></span><strong>Apple Pay</strong></div>
+        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:44%;background:var(--blue)"></div></div>
+        <div class="bank-bar-pct" style="color:var(--blue)">44%</div>
+        <div class="bank-type-tag fintech">Fintech</div>
+      </div>
+      <div class="bank-bar-row highlight-row">
+        <div class="bank-bar-name"><span class="bank-dot" style="background:var(--purple)"></span><strong>Venmo</strong></div>
+        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:36%;background:var(--purple)"></div></div>
+        <div class="bank-bar-pct" style="color:var(--purple)">36%</div>
+        <div class="bank-type-tag fintech">Fintech</div>
+      </div>
+
+      <div class="bank-bar-divider">
+        <span>Traditional Banks</span>
+      </div>
+
+      <div class="bank-bar-row">
+        <div class="bank-bar-name"><span class="bank-dot" style="background:var(--muted)"></span>Capital One</div>
+        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:31%;background:var(--muted2)"></div></div>
+        <div class="bank-bar-pct">31%</div>
+        <div class="bank-type-tag trad">Bank</div>
+      </div>
+      <div class="bank-bar-row">
+        <div class="bank-bar-name"><span class="bank-dot" style="background:var(--muted)"></span>Chime</div>
+        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:28%;background:var(--muted2)"></div></div>
+        <div class="bank-bar-pct">28%</div>
+        <div class="bank-type-tag fintech">Fintech</div>
+      </div>
+      <div class="bank-bar-row">
+        <div class="bank-bar-name"><span class="bank-dot" style="background:var(--muted)"></span>Bank of America</div>
+        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:23%;background:var(--muted2)"></div></div>
+        <div class="bank-bar-pct">23%</div>
+        <div class="bank-type-tag trad">Bank</div>
+      </div>
+      <div class="bank-bar-row">
+        <div class="bank-bar-name"><span class="bank-dot" style="background:var(--muted)"></span>Chase</div>
+        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:23%;background:var(--muted2)"></div></div>
+        <div class="bank-bar-pct">23%</div>
+        <div class="bank-type-tag trad">Bank</div>
+      </div>
+      <div class="bank-note">Base: Modern Earners, Q1 2026 (n=1,929 weighted). Account ownership = any account held; respondents may hold multiple.</div>
+    </div>
+
+    <div class="banking-callouts-panel">
+      <div class="bank-callout-card primary-bank-card">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:12px">Primary Bank Designation</div>
+        <div style="font-size:56px;font-weight:900;line-height:1;color:var(--green);margin-bottom:8px">12%</div>
+        <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:8px">of Modern Earners name Cash App as their primary bank</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.6">Based on Q1 2026 primary bank designation question (separate from account ownership). Cash App is the #2 primary bank among Modern Earners, behind Bank of America.</div>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border)">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:10px">Top primary banks among MEs</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="font-size:12px;color:var(--muted);width:100px">Bank of America</div>
+              <div style="flex:1;height:4px;background:var(--border);border-radius:2px"><div style="width:72%;height:100%;background:var(--muted2);border-radius:2px"></div></div>
+              <div style="font-size:12px;color:var(--muted);width:28px;text-align:right">18%</div>
             </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Bank of America</td>
-          <td>22%</td>
-          <td>13%</td>
-          <td class="trend-dn">▼ −9 pts</td>
-          <td>
-            <div class="trend-bar-inline">
-              <span class="tbi" style="width:65px;background:var(--muted2)"></span>
-              <span style="font-size:12px;color:var(--muted)">13%</span>
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="font-size:12px;font-weight:700;color:var(--green);width:100px">Cash App</div>
+              <div style="flex:1;height:4px;background:var(--border);border-radius:2px"><div style="width:48%;height:100%;background:var(--green);border-radius:2px"></div></div>
+              <div style="font-size:12px;font-weight:700;color:var(--green);width:28px;text-align:right">12%</div>
             </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Chase</td>
-          <td>15%</td>
-          <td>11%</td>
-          <td class="trend-dn">▼ −4 pts</td>
-          <td>
-            <div class="trend-bar-inline">
-              <span class="tbi" style="width:55px;background:var(--muted2)"></span>
-              <span style="font-size:12px;color:var(--muted)">11%</span>
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="font-size:12px;color:var(--muted);width:100px">Chase</div>
+              <div style="flex:1;height:4px;background:var(--border);border-radius:2px"><div style="width:44%;height:100%;background:var(--muted2);border-radius:2px"></div></div>
+              <div style="font-size:12px;color:var(--muted);width:28px;text-align:right">11%</div>
             </div>
-          </td>
-        </tr>
-        <tr>
-          <td>PayPal</td>
-          <td>—</td>
-          <td>9%</td>
-          <td class="trend-dn">—</td>
-          <td>
-            <div class="trend-bar-inline">
-              <span class="tbi" style="width:45px;background:var(--muted2)"></span>
-              <span style="font-size:12px;color:var(--muted)">9%</span>
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="font-size:12px;color:var(--muted);width:100px">PayPal</div>
+              <div style="flex:1;height:4px;background:var(--border);border-radius:2px"><div style="width:36%;height:100%;background:var(--muted2);border-radius:2px"></div></div>
+              <div style="font-size:12px;color:var(--muted);width:28px;text-align:right">9%</div>
             </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Wells Fargo</td>
-          <td>—</td>
-          <td>7%</td>
-          <td>—</td>
-          <td>
-            <div class="trend-bar-inline">
-              <span class="tbi" style="width:35px;background:var(--muted2)"></span>
-              <span style="font-size:12px;color:var(--muted)">7%</span>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Chime</td>
-          <td>—</td>
-          <td>5%</td>
-          <td>—</td>
-          <td>
-            <div class="trend-bar-inline">
-              <span class="tbi" style="width:25px;background:var(--muted2)"></span>
-              <span style="font-size:12px;color:var(--muted)">5%</span>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="income-note fade-up">
-    Q4 2024 comparisons shown where available in the dataset. The Cash App primary banking shift (4% → 12%) reflects a notable change in where Modern Earners anchor their financial lives. These are independent cross-sections — directional findings should be interpreted with appropriate caution. Source: Earner Sizing Refresh Study, Q1 2026 and Q4 2024.
+          </div>
+        </div>
+      </div>
+      <div class="bank-callout-card">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">The Fintech Moment</div>
+        <div style="font-size:13px;color:var(--text);line-height:1.7">Modern Earners hold fintech accounts at dramatically higher rates than traditional banks. Among the top 8 institutions by ownership, <strong style="color:var(--amber)">5 are fintech platforms</strong>. This isn't just convenience — it reflects how irregular income earners prefer to manage money: on-demand, app-first, and across multiple services simultaneously.</div>
+        <div style="margin-top:16px;padding:14px;background:var(--bg);border-radius:8px;border-left:3px solid var(--green)">
+          <div style="font-size:12px;color:var(--muted);margin-bottom:4px">Account ownership ≠ primary relationship</div>
+          <div style="font-size:12px;color:var(--text);line-height:1.6">55% of Modern Earners have a Cash App account, but only 12% name it as their primary bank. The conversion from account holder to primary designation is Cash App's core strategic opportunity.</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1829,6 +1994,59 @@ footer {
         <div style="font-size:12px;color:var(--muted);line-height:1.6">Teens who adopt Cash App as their primary bank during high school are likely to carry that relationship forward. A 31% primary rate — vs 10% for adults — suggests that when teens have a Cash App account, it becomes central in a way adult accounts do not.</div>
       </div>
     </div>
+  </div>
+
+  <!-- Teen Income Sources -->
+  <div style="margin-top:48px" class="fade-up">
+    <div style="font-size:11px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--purple);margin-bottom:6px">How teens earn</div>
+    <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px">Income sources among teen earners (ages 15–17)</div>
+    <div style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:28px;max-width:700px">Teen earning is diverse — informal caregiving and chores dominate, but part-time employment and reselling show a cohort increasingly building real-world financial skills. Base: Teen Modern Earners, Q1 2026.</div>
+
+    <div class="teen-sources-grid">
+      <div class="teen-source-group">
+        <div class="teen-source-group-label" style="color:var(--purple)">Informal &amp; Family-Based</div>
+        <div class="teen-source-row">
+          <div class="teen-source-label">Gifts / monetary gifts</div>
+          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:61%;background:var(--purple)"></div></div>
+          <div class="teen-source-val" style="color:var(--purple)">61%</div>
+        </div>
+        <div class="teen-source-row">
+          <div class="teen-source-label">Chores (paid by parents)</div>
+          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:55%;background:var(--purple)"></div></div>
+          <div class="teen-source-val" style="color:var(--purple)">55%</div>
+        </div>
+        <div class="teen-source-row">
+          <div class="teen-source-label">Allowance</div>
+          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:38%;background:rgba(139,92,246,0.5)"></div></div>
+          <div class="teen-source-val" style="color:var(--muted)">38%</div>
+        </div>
+      </div>
+
+      <div class="teen-source-group">
+        <div class="teen-source-group-label" style="color:var(--green)">Earned &amp; Entrepreneurial</div>
+        <div class="teen-source-row">
+          <div class="teen-source-label">Part-time job (school year)</div>
+          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:26%;background:var(--green)"></div></div>
+          <div class="teen-source-val" style="color:var(--green)">26%</div>
+        </div>
+        <div class="teen-source-row">
+          <div class="teen-source-label">Summer job</div>
+          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:21%;background:var(--green)"></div></div>
+          <div class="teen-source-val" style="color:var(--green)">21%</div>
+        </div>
+        <div class="teen-source-row">
+          <div class="teen-source-label">Caretaking / babysitting</div>
+          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:18%;background:rgba(0,213,75,0.5)"></div></div>
+          <div class="teen-source-val" style="color:var(--muted)">18%</div>
+        </div>
+        <div class="teen-source-row">
+          <div class="teen-source-label">Reselling (clothes, goods)</div>
+          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:12%;background:rgba(0,213,75,0.4)"></div></div>
+          <div class="teen-source-val" style="color:var(--muted)">12%</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:10px;color:var(--muted2);margin-top:16px">Source: Earner Sizing Refresh Study, Tab 12 (Teen &amp; Gen Z). Base: Teen Modern Earners ages 15–17, Q1 2026.</div>
   </div>
 </section>
 
@@ -2212,6 +2430,29 @@ setTimeout(() => {
 
 // ── INIT EXPLORER ────────────────────────────────────────────────────────────
 renderMatrix();
+
+// ── IE WORK TYPE EXPLORER ─────────────────────────────────────────────────────
+(function() {
+  const insights = [
+    '<strong>Informal Services — the largest independent earning category.</strong> 28 million adults earn through informal services — the most common form of independent income. Payment via Venmo, Cash App, or cash-in-hand is the norm. Many don\'t think of themselves as "gig workers" — they\'re just helping neighbors, watching kids, or doing odd jobs. This segment is radically underserved by financial products designed for formal employment.',
+    '<strong>Business & Products — sellers who think like entrepreneurs.</strong> ~26 million adults earn through product sales, resale, or small business ventures. Platforms like Etsy, eBay, and direct-sales networks are the marketplace layer, but their financial needs are more complex: inventory costs, inconsistent demand cycles, and the need to separate personal and business cash flows.',
+    '<strong>Professional & Freelance — the knowledge economy\'s independent workers.</strong> ~21 million adults — writers, designers, developers, consultants — earn through project-based professional work. Many have multiple concurrent clients, invoice irregularly, and face the most significant tax complexity of any independent earning type. Their income variability is high even when earnings are substantial.',
+    '<strong>Gig Platforms — the visible face of the gig economy.</strong> ~16 million adults actively earn through app-based gig platforms. DoorDash (4%), Uber/Lyft (2%), Instacart (3%), and Amazon Flex (1%) represent the most recognized tier. These earners receive income through platform direct deposit — making them simultaneously the most tech-savvy and the most reliant on fast money access.',
+    '<strong>Content Creation — small but growing rapidly.</strong> ~8 million adults monetize content across YouTube, Twitch, Substack, TikTok, and podcasting. Revenue is diverse and hard to predict: ad share, subscriptions, sponsorships, and tips. Cash App and Venmo are frequently listed as preferred payment collection methods by creators with engaged communities.'
+  ];
+
+  const grid = document.getElementById('ie-worktype-grid');
+  const insightEl = document.getElementById('ie-insight-content');
+  if (!grid || !insightEl) return;
+
+  grid.querySelectorAll('.worktype-card').forEach((card, i) => {
+    card.addEventListener('click', () => {
+      grid.querySelectorAll('.worktype-card').forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      insightEl.innerHTML = insights[i];
+    });
+  });
+})();
 
 // ── SIDE NAV SCROLL SPY ───────────────────────────────────────────────────────
 (function() {
