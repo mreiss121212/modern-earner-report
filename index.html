@@ -670,8 +670,8 @@ section {
 .teen-source-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
 .teen-source-row:last-child { margin-bottom: 0; }
 .teen-source-label { font-size: 12px; color: var(--muted); flex: 1; }
-.teen-source-bar-wrap { width: 80px; height: 5px; background: var(--muted2); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
-.teen-source-bar { height: 100%; border-radius: 3px; }
+.teen-source-bar-wrap { width: 80px; height: 5px; background: rgba(255,255,255,0.07); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+.teen-source-bar { height: 100%; border-radius: 3px; transition: width 0.9s cubic-bezier(0.4,0,0.2,1); }
 .teen-source-val { font-size: 12px; font-weight: 700; width: 28px; text-align: right; flex-shrink: 0; }
 
 /* ── PORTRAIT SECTIONS ── */
@@ -714,8 +714,8 @@ section {
 .portrait-stat-bars { display: flex; flex-direction: column; gap: 4px; width: 140px; }
 .portrait-bar-row { display: flex; align-items: center; gap: 6px; }
 .portrait-bar-label { font-size: 10px; color: var(--muted2); width: 46px; flex-shrink: 0; text-align: right; }
-.portrait-bar-wrap { flex: 1; height: 5px; background: var(--muted2); border-radius: 3px; overflow: hidden; }
-.portrait-bar { height: 100%; border-radius: 3px; }
+.portrait-bar-wrap { flex: 1; height: 5px; background: rgba(255,255,255,0.07); border-radius: 3px; overflow: hidden; }
+.portrait-bar { height: 100%; border-radius: 3px; transition: width 0.9s cubic-bezier(0.4,0,0.2,1); }
 .portrait-bar-val { font-size: 11px; font-weight: 700; width: 28px; text-align: right; flex-shrink: 0; }
 .portrait-highlight-stat {
   background: var(--card2); border: 1px solid var(--border);
@@ -1320,12 +1320,12 @@ footer {
           <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Monthly income variability</div>
           <div class="portrait-bar-row" style="margin-bottom:6px">
             <div class="portrait-bar-label" style="color:var(--amber)">Indep.</div>
-            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:83%;background:var(--amber)"></div></div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:0;background:var(--amber)" data-w="83"></div></div>
             <div class="portrait-bar-val" style="color:var(--amber)">83%</div>
           </div>
           <div class="portrait-bar-row">
             <div class="portrait-bar-label">Salary</div>
-            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:49%;background:var(--muted2)"></div></div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:0;background:rgba(255,255,255,0.22)" data-w="49"></div></div>
             <div class="portrait-bar-val" style="color:var(--muted)">49%</div>
           </div>
         </div>
@@ -1334,12 +1334,12 @@ footer {
           <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Run out before next paycheck (at least half the time)</div>
           <div class="portrait-bar-row" style="margin-bottom:6px">
             <div class="portrait-bar-label" style="color:var(--amber)">Indep.</div>
-            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:37%;background:var(--amber)"></div></div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:0;background:var(--amber)" data-w="37"></div></div>
             <div class="portrait-bar-val" style="color:var(--amber)">37%</div>
           </div>
           <div class="portrait-bar-row">
             <div class="portrait-bar-label">Salary</div>
-            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:27%;background:var(--muted2)"></div></div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:0;background:rgba(255,255,255,0.22)" data-w="27"></div></div>
             <div class="portrait-bar-val" style="color:var(--muted)">27%</div>
           </div>
         </div>
@@ -1348,12 +1348,12 @@ footer {
           <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Receive income in cash <span class="vs-badge">↑ sig.</span></div>
           <div class="portrait-bar-row" style="margin-bottom:6px">
             <div class="portrait-bar-label" style="color:var(--amber)">Indep.</div>
-            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:32%;background:var(--amber)"></div></div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:0;background:var(--amber)" data-w="32"></div></div>
             <div class="portrait-bar-val" style="color:var(--amber)">32%</div>
           </div>
           <div class="portrait-bar-row">
             <div class="portrait-bar-label">Salary</div>
-            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:8%;background:var(--muted2)"></div></div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:0;background:rgba(255,255,255,0.22)" data-w="8"></div></div>
             <div class="portrait-bar-val" style="color:var(--muted)">8%</div>
           </div>
         </div>
@@ -1362,12 +1362,12 @@ footer {
           <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Receive income via transfer app <span class="vs-badge">↑ sig.</span></div>
           <div class="portrait-bar-row" style="margin-bottom:6px">
             <div class="portrait-bar-label" style="color:var(--amber)">Indep.</div>
-            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:30%;background:var(--amber)"></div></div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:0;background:var(--amber)" data-w="30"></div></div>
             <div class="portrait-bar-val" style="color:var(--amber)">30%</div>
           </div>
           <div class="portrait-bar-row">
             <div class="portrait-bar-label">Salary</div>
-            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:9%;background:var(--muted2)"></div></div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:0;background:rgba(255,255,255,0.22)" data-w="9"></div></div>
             <div class="portrait-bar-val" style="color:var(--muted)">9%</div>
           </div>
         </div>
@@ -1487,12 +1487,12 @@ footer {
           <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Run out before next paycheck (at least half the time)</div>
           <div class="portrait-bar-row" style="margin-bottom:6px">
             <div class="portrait-bar-label" style="color:var(--blue)">Hourly</div>
-            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:38%;background:var(--blue)"></div></div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:0;background:var(--blue)" data-w="38"></div></div>
             <div class="portrait-bar-val" style="color:var(--blue)">38%</div>
           </div>
           <div class="portrait-bar-row">
             <div class="portrait-bar-label">Salary</div>
-            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:27%;background:var(--muted2)"></div></div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:0;background:rgba(255,255,255,0.22)" data-w="27"></div></div>
             <div class="portrait-bar-val" style="color:var(--muted)">27%</div>
           </div>
         </div>
@@ -1501,12 +1501,12 @@ footer {
           <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Cash App Borrow usage <span class="vs-badge">↑ sig.</span></div>
           <div class="portrait-bar-row" style="margin-bottom:6px">
             <div class="portrait-bar-label" style="color:var(--blue)">Hourly</div>
-            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:22%;background:var(--blue)"></div></div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:0;background:var(--blue)" data-w="22"></div></div>
             <div class="portrait-bar-val" style="color:var(--blue)">22%</div>
           </div>
           <div class="portrait-bar-row">
             <div class="portrait-bar-label">Salary</div>
-            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:18%;background:var(--muted2)"></div></div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:0;background:rgba(255,255,255,0.22)" data-w="18"></div></div>
             <div class="portrait-bar-val" style="color:var(--muted)">18%</div>
           </div>
         </div>
@@ -1515,12 +1515,12 @@ footer {
           <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Free overdraft coverage usage <span class="vs-badge">↑ sig.</span></div>
           <div class="portrait-bar-row" style="margin-bottom:6px">
             <div class="portrait-bar-label" style="color:var(--blue)">Hourly</div>
-            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:15%;background:var(--blue)"></div></div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:0;background:var(--blue)" data-w="15"></div></div>
             <div class="portrait-bar-val" style="color:var(--blue)">15%</div>
           </div>
           <div class="portrait-bar-row">
             <div class="portrait-bar-label">Salary</div>
-            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:8%;background:var(--muted2)"></div></div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:0;background:rgba(255,255,255,0.22)" data-w="8"></div></div>
             <div class="portrait-bar-val" style="color:var(--muted)">8%</div>
           </div>
         </div>
@@ -1529,12 +1529,12 @@ footer {
           <div style="font-size:11px;color:var(--muted);margin-bottom:8px">Receive income via paper check</div>
           <div class="portrait-bar-row" style="margin-bottom:6px">
             <div class="portrait-bar-label" style="color:var(--blue)">Hourly</div>
-            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:13%;background:var(--blue)"></div></div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:0;background:var(--blue)" data-w="13"></div></div>
             <div class="portrait-bar-val" style="color:var(--blue)">13%</div>
           </div>
           <div class="portrait-bar-row">
             <div class="portrait-bar-label">Salary</div>
-            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:7%;background:var(--muted2)"></div></div>
+            <div class="portrait-bar-wrap"><div class="portrait-bar" style="width:0;background:rgba(255,255,255,0.22)" data-w="7"></div></div>
             <div class="portrait-bar-val" style="color:var(--muted)">7%</div>
           </div>
         </div>
@@ -1934,7 +1934,7 @@ footer {
 <section id="features">
   <div class="section-label">08 — Feature Adoption</div>
   <div class="section-title">What Cash App users<br>actually use.</div>
-  <div class="section-lead">Among the 70M Modern Earners with a Cash App account, feature adoption varies significantly by segment. Send/receive and the debit card lead overall — but Independent Earners over-index on Bitcoin and savings, while Hourly Workers drive overdraft and borrow usage.</div>
+  <div class="section-lead">Among the 75M Modern Earners with a Cash App account, feature adoption varies significantly by segment. Send/receive and the debit card lead overall — but Independent Earners over-index on Bitcoin and savings, while Hourly Workers drive overdraft and borrow usage.</div>
 
   <div class="feature-grid fade-up">
     <div class="feature-panel">
@@ -2070,25 +2070,25 @@ footer {
 
       <div class="bank-bar-row highlight-row">
         <div class="bank-bar-name"><span class="bank-dot" style="background:var(--green)"></span><strong>Cash App</strong></div>
-        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:55%;background:var(--green)"></div></div>
+        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:0;background:var(--green)" data-w="55"></div></div>
         <div class="bank-bar-pct" style="color:var(--green)">55%</div>
         <div class="bank-type-tag fintech">Fintech</div>
       </div>
       <div class="bank-bar-row highlight-row">
         <div class="bank-bar-name"><span class="bank-dot" style="background:var(--amber)"></span><strong>PayPal</strong></div>
-        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:59%;background:var(--amber)"></div></div>
+        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:0;background:var(--amber)" data-w="59"></div></div>
         <div class="bank-bar-pct" style="color:var(--amber)">59%</div>
         <div class="bank-type-tag fintech">Fintech</div>
       </div>
       <div class="bank-bar-row highlight-row">
         <div class="bank-bar-name"><span class="bank-dot" style="background:var(--blue)"></span><strong>Apple Pay</strong></div>
-        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:44%;background:var(--blue)"></div></div>
+        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:0;background:var(--blue)" data-w="44"></div></div>
         <div class="bank-bar-pct" style="color:var(--blue)">44%</div>
         <div class="bank-type-tag fintech">Fintech</div>
       </div>
       <div class="bank-bar-row highlight-row">
         <div class="bank-bar-name"><span class="bank-dot" style="background:var(--purple)"></span><strong>Venmo</strong></div>
-        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:36%;background:var(--purple)"></div></div>
+        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:0;background:var(--purple)" data-w="36"></div></div>
         <div class="bank-bar-pct" style="color:var(--purple)">36%</div>
         <div class="bank-type-tag fintech">Fintech</div>
       </div>
@@ -2099,25 +2099,25 @@ footer {
 
       <div class="bank-bar-row">
         <div class="bank-bar-name"><span class="bank-dot" style="background:var(--muted)"></span>Capital One</div>
-        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:31%;background:var(--muted2)"></div></div>
+        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:0;background:rgba(255,255,255,0.22)" data-w="31"></div></div>
         <div class="bank-bar-pct">31%</div>
         <div class="bank-type-tag trad">Bank</div>
       </div>
       <div class="bank-bar-row">
         <div class="bank-bar-name"><span class="bank-dot" style="background:var(--muted)"></span>Chime</div>
-        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:28%;background:var(--muted2)"></div></div>
+        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:0;background:rgba(255,255,255,0.22)" data-w="28"></div></div>
         <div class="bank-bar-pct">28%</div>
         <div class="bank-type-tag fintech">Fintech</div>
       </div>
       <div class="bank-bar-row">
         <div class="bank-bar-name"><span class="bank-dot" style="background:var(--muted)"></span>Bank of America</div>
-        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:23%;background:var(--muted2)"></div></div>
+        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:0;background:rgba(255,255,255,0.22)" data-w="23"></div></div>
         <div class="bank-bar-pct">23%</div>
         <div class="bank-type-tag trad">Bank</div>
       </div>
       <div class="bank-bar-row">
         <div class="bank-bar-name"><span class="bank-dot" style="background:var(--muted)"></span>Chase</div>
-        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:23%;background:var(--muted2)"></div></div>
+        <div class="bank-bar-track"><div class="bank-bar-fill" style="width:0;background:rgba(255,255,255,0.22)" data-w="23"></div></div>
         <div class="bank-bar-pct">23%</div>
         <div class="bank-type-tag trad">Bank</div>
       </div>
@@ -2240,17 +2240,17 @@ footer {
         <div class="teen-source-group-label" style="color:var(--purple)">Informal &amp; Family-Based</div>
         <div class="teen-source-row">
           <div class="teen-source-label">Gifts / monetary gifts</div>
-          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:61%;background:var(--purple)"></div></div>
+          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:0;background:var(--purple)" data-w="61"></div></div>
           <div class="teen-source-val" style="color:var(--purple)">61%</div>
         </div>
         <div class="teen-source-row">
           <div class="teen-source-label">Chores (paid by parents)</div>
-          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:55%;background:var(--purple)"></div></div>
+          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:0;background:var(--purple)" data-w="55"></div></div>
           <div class="teen-source-val" style="color:var(--purple)">55%</div>
         </div>
         <div class="teen-source-row">
           <div class="teen-source-label">Allowance</div>
-          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:38%;background:rgba(139,92,246,0.5)"></div></div>
+          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:0;background:rgba(139,92,246,0.5)" data-w="38"></div></div>
           <div class="teen-source-val" style="color:var(--muted)">38%</div>
         </div>
       </div>
@@ -2259,22 +2259,22 @@ footer {
         <div class="teen-source-group-label" style="color:var(--green)">Earned &amp; Entrepreneurial</div>
         <div class="teen-source-row">
           <div class="teen-source-label">Part-time job (school year)</div>
-          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:26%;background:var(--green)"></div></div>
+          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:0;background:var(--green)" data-w="26"></div></div>
           <div class="teen-source-val" style="color:var(--green)">26%</div>
         </div>
         <div class="teen-source-row">
           <div class="teen-source-label">Summer job</div>
-          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:21%;background:var(--green)"></div></div>
+          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:0;background:var(--green)" data-w="21"></div></div>
           <div class="teen-source-val" style="color:var(--green)">21%</div>
         </div>
         <div class="teen-source-row">
           <div class="teen-source-label">Caretaking / babysitting</div>
-          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:18%;background:rgba(0,213,75,0.5)"></div></div>
+          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:0;background:rgba(0,213,75,0.5)" data-w="18"></div></div>
           <div class="teen-source-val" style="color:var(--muted)">18%</div>
         </div>
         <div class="teen-source-row">
           <div class="teen-source-label">Reselling (clothes, goods)</div>
-          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:12%;background:rgba(0,213,75,0.4)"></div></div>
+          <div class="teen-source-bar-wrap"><div class="teen-source-bar" style="width:0;background:rgba(0,213,75,0.4)" data-w="12"></div></div>
           <div class="teen-source-val" style="color:var(--muted)">12%</div>
         </div>
       </div>
@@ -2380,13 +2380,13 @@ footer {
   <div class="interp-block">
     <div class="interp-num">Finding 02</div>
     <div class="interp-title">Income complexity is the defining variable — not income level.</div>
-    <div class="interp-body">The data shows that income variability (83% of IEs, 53% of Hourly Workers) and multi-source earning (94% of IEs have 2+ streams annually) are the primary drivers of financial complexity — more so than income amount. <strong>Implication:</strong> Financial products that manage predictability, timing, and flow — not just amount — are most relevant to this population. The 38M gap (MAU to primary) likely reflects friction in cash-flow management, not product awareness.</div>
+    <div class="interp-body">The data shows that income variability (83% of IEs, 53% of Hourly Workers) and multi-source earning (94% of IEs have 2+ streams annually) are the primary drivers of financial complexity — more so than income amount. <strong>Implication:</strong> Financial products that manage predictability, timing, and flow — not just amount — are most relevant to this population. The 43M gap (MAU to primary) likely reflects friction in cash-flow management, not product awareness.</div>
   </div>
 
   <div class="interp-block">
     <div class="interp-num">Finding 03</div>
     <div class="interp-title">The quarter-over-quarter shifts are directional, not definitive.</div>
-    <div class="interp-body">The apparent growth in Independent Earners (54M → 70M) and the increase in Cash App primary banking (4% → 12%) are notable but should be interpreted carefully. <strong>These are spot comparisons between independent samples, not a panel.</strong> The IE definition also expanded in Q1 2026 to include casual selling. Changes may reflect real shifts in the population, methodological differences, or both. <strong>Implication:</strong> Use these figures to understand directional momentum, not to calculate precise growth rates.</div>
+    <div class="interp-body">The growth in Independent Earners (54M → 70M) is notable but partly driven by a definition expansion — casual selling was added in Q1 2026, adding ~16M adults. Salary worker decline (50M → 46M, −8%) and total ME growth (122M → 134M, +9%) are consistent directional signals. Cash App primary bank designation stands at 12% of Modern Earners (16M) in Q1 2026. <strong>These are spot comparisons between independent samples, not a panel.</strong> Changes may reflect real shifts in the population, methodological differences, or both. <strong>Implication:</strong> Use these figures to understand directional momentum, not to calculate precise growth rates.</div>
   </div>
 
   <div class="interp-block">
